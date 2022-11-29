@@ -17,7 +17,7 @@ Then, add 32-bit support and update your system
 
 ```
 dpkg --add-architecture i386
-apt-get update && apt-get install --no-install-recommends -y ca-certificates lib32gcc-s1 curl wget gnupg2 software-properties-common wine wine32 wine64 xvfb && apt-get upgrade
+apt-get update && apt-get install --no-install-recommends -y ca-certificates lib32gcc-s1 curl wget gnupg2 software-properties-common wine wine32 wine64 xvfb xauth && apt-get upgrade
 ```
 
 Once you did that, you can switch to the user you created above and either clone this repository or copy the `install_server.sh` and `launch_server.sh` into the home folder of your user.
