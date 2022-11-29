@@ -5,7 +5,9 @@ The developers of Icarus run their servers on windows and do not provide a nativ
 
 ## Installation
 
-Before installing, set up the system you're working on. First of all, you will need an unprivileged user, I named mine `steam`, but you can use any name you want. You can create your user with this command:
+After you cloned this repo, you have to set up the system you're working on. You have two options to do this. The easiest option is to run the `root_install.sh` as root user. This script is basically a collection of the commands below. If you don't want to do that, you can always execute the commands below manually.
+
+First of all, you will need an unprivileged user, I named mine `steam`, but you can use any name you want. You can create your user with this command:
 
 ```
 useradd -s /bin/bash -d /home/steam -m steam
@@ -31,7 +33,9 @@ chmod +x launch_server.sh
 
 Now you're ready for the server installation. Execute `install_server.sh`. It'll ask you for the name of the server (the one displayed in the server browser) and the ports it should use. I've used somewhat sane defaults, but you can change them however you like.
 
-Once the installation succeeded, execute `launch_server.sh`. I recommend using screen or tmux to avoid being locked into the terminal. Then you're ready to play!
+## Launching the server
+
+Simply execute `launch_server.sh`. I recommend using screen or tmux to avoid being locked into the terminal. Then you're ready to play!
 
 ## Hickups
 

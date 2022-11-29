@@ -13,5 +13,7 @@ dpkg --add-architecture i386
 apt-get update && apt-get install --no-install-recommends -y ca-certificates lib32gcc-s1 curl wget gnupg2 software-properties-common wine wine32 wine64 xvfb xauth && apt-get upgrade
 
 echo "All root-tasks done - executing install-script as steam user..."
-PWD=$(pwd)
-su - steam -c "bash $PWD/install_server.sh"
+su - steam -c "git clone https://github.com/Realitaetsverlust/icarus-server-linux /home/steam/icarus-server-linux"
+su - steam -c "chmod +x /home/steam/icarus-server-linux/install_server.sh"
+su - steam -c "chmod +x /home/steam/icarus-server-linux/launch_server.sh"
+su - steam -c "bash /home/steam/icarus-server-linux/install_server.sh"
