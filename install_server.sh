@@ -59,9 +59,9 @@ echo "Installing steamcmd ..."
 curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -v -C ~/steamcmd -zx
 chown -R $CURRENTUSER:$CURRENTUSER ~
 
-echo "Installing vcredist ..."
-wget https://aka.ms/vs/17/release/vc_redist.x64.exe
-chmod +x vc_redist.x64.exe
+echo "Downloading vc_redist ..."
+wget https://aka.ms/vs/17/release/vc_redist.x64.exe -P $HOMEDIR/vc_redist.x64.exe -P $HOMEDIR
+chmod +x $HOMEDIR/vc_redist.x64.exe
 
 echo "Installation complete!"
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $(id -u) == 0 ]] ; then
-  echo "Running a PUBLIC SERVER with the root user is a really really bad idea."
+  echo "Running a PUBLIC SERVER as root user is a really really bad idea."
   exit 1
 fi
 
@@ -21,7 +21,7 @@ echo "Initializing wine ..."
 wineboot --init
 
 echo "Performing steam update ..."
-~/steam/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir ~/game/ +login anonymous +app_update 2089300 +quit
+$HOMEDIR/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir ~/game/ +login anonymous +app_update 2089300 +quit
 
 echo "Launching server ..."
-wine $HOMEDIR/game/icarus/Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe -Log -UserDir='C:\icarus' -SteamServerName="$SERVERNAME" -PORT="$GAMEPORT" -QueryPort="$QUERYPORT"
+wine $HOMEDIR/game/icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe -Log -UserDir='C:\icarus' -SteamServerName="$SERVERNAME" -PORT="$GAMEPORT" -QueryPort="$QUERYPORT"
