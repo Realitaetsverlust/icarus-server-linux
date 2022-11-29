@@ -64,6 +64,7 @@ wget https://aka.ms/vs/17/release/vc_redist.x64.exe -P $HOMEDIR/vc_redist.x64.ex
 chmod +x $HOMEDIR/vc_redist.x64.exe
 
 # We're hiding this as it throws an error, but still works in the end. I have no clue why.
+echo "Installing vc_redist - this might take a while ..."
 xvfb-run -a wine $HOMEDIR/vc_redist.x64.exe > /dev/null 2>&1
 
 echo "Installation complete!"
