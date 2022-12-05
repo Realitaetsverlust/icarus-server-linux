@@ -11,7 +11,7 @@ echo "####################"
 echo "##  ICARUS SERVER ##"
 echo "####################"
 
-echo Server Name: $SERVERNAME 
+echo Server Name: $SERVERNAME
 echo Game Port  : $GAMEPORT
 echo Query Port : $QUERYPORT
 

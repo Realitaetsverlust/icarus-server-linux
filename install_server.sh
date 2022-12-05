@@ -45,27 +45,28 @@ rm -f ~/serverconfig.env
 echo "SERVERNAME=\"$SERVERNAME\"" >> ~/serverconfig.env
 echo "GAMEPORT=\"$GAMEPORT\"" >> ~/serverconfig.env
 echo "QUERYPORT=\"$QUERYPORT\"" >> ~/serverconfig.env
-echo "WINEPREFIX=\"/$CURRENTUSER/vcredist\"" >> ~/serverconfig.env
-echo "WINEARCH=\"win32\"" >> ~/serverconfig.env
+echo "WINEPREFIX=\"/home/steam/.icarus\"" >> ~/serverconfig.env
+echo "WINEARCH=\"win64\"" >> ~/serverconfig.env
 echo "WINEPATH=\"/\"" >> ~/serverconfig.env
+
+. ~/serverconfig.env
 
 echo "Adding necessary directories ..."
 mkdir -p $HOMEDIR/icarus/drive_c/icarus
 mkdir -p $HOMEDIR/game/icarus
 mkdir -p $HOMEDIR/steamcmd
-mkdir -p $HOMEDIR/vcredist
 
 echo "Installing steamcmd ..."
 curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -v -C ~/steamcmd -zx
 chown -R $CURRENTUSER:$CURRENTUSER ~
 
 echo "Downloading vc_redist ..."
-wget https://aka.ms/vs/17/release/vc_redist.x64.exe -P $HOMEDIR/vc_redist.x64.exe -P $HOMEDIR
+wget https://aka.ms/vs/17/release/vc_redist.x64.exe -P $HOMEDIR
 chmod +x $HOMEDIR/vc_redist.x64.exe
 
 # We're hiding this as it throws an error, but still works in the end. I have no clue why.
-echo "Installing vc_redist - this might take a while ..."
-xvfb-run -a wine $HOMEDIR/vc_redist.x64.exe /quiet /norestart > /dev/null 2>&1
+#echo "Installing vc_redist - this might take a while ..."
+xvfb-run -a wine $HOMEDIR/vc_redist.x64.exe /quiet /norestart
 
 echo "Installation complete!"
 
