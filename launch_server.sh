@@ -17,6 +17,8 @@ echo Query Port : $QUERYPORT
 
 HOMEDIR=/home/$(whoami)
 
+export WINEARCH=win64
+
 echo "Initializing wine ..."
 wineboot --init
 

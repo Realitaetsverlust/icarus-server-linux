@@ -51,6 +51,8 @@ echo "WINEPATH=\"/\"" >> ~/serverconfig.env
 
 . ~/serverconfig.env
 
+export WINEARCH=win32
+
 echo "Adding necessary directories ..."
 mkdir -p $HOMEDIR/icarus/drive_c/icarus
 mkdir -p $HOMEDIR/game/icarus
