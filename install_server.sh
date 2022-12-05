@@ -46,7 +46,6 @@ echo "SERVERNAME=\"$SERVERNAME\"" >> ~/serverconfig.env
 echo "GAMEPORT=\"$GAMEPORT\"" >> ~/serverconfig.env
 echo "QUERYPORT=\"$QUERYPORT\"" >> ~/serverconfig.env
 echo "WINEPREFIX=\"/home/steam/.icarus\"" >> ~/serverconfig.env
-echo "WINEARCH=\"win64\"" >> ~/serverconfig.env
 echo "WINEPATH=\"/\"" >> ~/serverconfig.env
 
 . ~/serverconfig.env
