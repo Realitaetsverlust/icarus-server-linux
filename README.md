@@ -5,7 +5,7 @@ The developers of Icarus run their servers on windows and do not provide a nativ
 
 ## Installation
 
-After you cloned this repo, you have to set up the system you're working on. You have two options to do this. The easiest option is to run the `root_install.sh` as root user. This script is basically a collection of the commands below. If you don't want to do that, you can always execute the commands below manually.
+After you cloned this repo, you have to set up the system you're working on. If you run a debian system, you have two options to do this. The easiest option is to run the `root_install.sh` as root user. This script is basically a collection of the commands below. If you don't want to do that or are not using a debian system, you can always execute the commands below manually - keep in mind that you'll have to adjust the commands depending on your distro. I'll slowly add support for other OS but debian, so keep tuned.
 
 First of all, you will need an unprivileged user, I named mine `steam`, but you can use any name you want. You can create your user with this command:
 
@@ -19,8 +19,20 @@ Then, add 32-bit support and update your system
 
 ```
 dpkg --add-architecture i386
-apt-get update && apt-get install --no-install-recommends -y ca-certificates lib32gcc-s1 curl wget gnupg2 software-properties-common wine wine32 wine64 xvfb xauth && apt-get upgrade
+apt-get update && apt-get install --no-install-recommends -y ca-certificates lib32gcc-s1 curl wget gnupg2 software-properties-common && apt-get upgrade
 ```
+
+Now, we still need wine. Debian ships with wine 5 by default, which is a bit too old, so we're going to install wine-stable.
+
+```
+mkdir -pm755 /etc/apt/keyrings
+wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bullseye/winehq-bullseye.sources
+apt update
+apt install --install-recommends winehq-stable
+```
+
+This process is debian only - please refer to a guide on how to install wine 7 for your distro if you are not using debian.
 
 Once you did that, you can switch to the user you created above and either clone this repository or copy the `install_server.sh` and `launch_server.sh` into the home folder of your user.
 
