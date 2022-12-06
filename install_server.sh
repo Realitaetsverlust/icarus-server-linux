@@ -61,16 +61,8 @@ echo "Installing steamcmd ..."
 curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -v -C ~/steamcmd -zx
 chown -R $CURRENTUSER:$CURRENTUSER ~
 
-echo "Downloading vc_redist ..."
-wget https://aka.ms/vs/17/release/vc_redist.x64.exe -P $HOMEDIR
-chmod +x $HOMEDIR/vc_redist.x64.exe
-
 wineboot --init
 sleep 5
-
-# We're hiding this as it throws an error, but still works in the end. I have no clue why.
-#echo "Installing vc_redist - this might take a while ..."
-xvfb-run -a wine $HOMEDIR/vc_redist.x64.exe /quiet /norestart
 
 echo "Installation complete!"
 

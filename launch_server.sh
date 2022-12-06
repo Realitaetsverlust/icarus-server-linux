@@ -19,9 +19,6 @@ HOMEDIR=/home/$(whoami)
 
 export WINEARCH=win64
 
-echo "Initializing wine ..."
-wineboot --init
-
 echo "Performing steam update ..."
 $HOMEDIR/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir ~/game/ +login anonymous +app_update 2089300 +quit
 
